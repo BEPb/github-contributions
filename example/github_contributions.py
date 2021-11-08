@@ -56,7 +56,7 @@ def process_image(path):  # функция работы с рисунком 52x7
       write_px(x, y, val, prefix="ign-")  # обращаемся к функции записи коммита
 
 def main():
-    process_image('test.png')  # коммит делается из рисунка
+    process_image('../test.png')  # коммит делается из рисунка
     # print('now  ', now)
     # print('offset  ', offset)
     # print('d ', d)
