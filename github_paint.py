@@ -138,7 +138,7 @@ def main():
 
     # заполнение по картинке
     os.chdir('..')  # вернемся на 2 уровня вверх
-    process_image('test.png', directory)  # коммит делается из рисунка
+    process_image('test2016.png', directory)  # коммит делается из рисунка
 
 
     if repository is not None:  # если репозиторий существует
@@ -148,7 +148,7 @@ def main():
     print('\nRepository generation ' +
           '\x1b[6;30;42mcompleted successfully\x1b[0m!')
 
-start_date = date(2020, 12, 20)
+start_date = date(2016, 12, 28)
 now = date.today()
 days_ago = now - start_date
 offset = (date.today().weekday() + 1) % 7  # сегодняшней даты, на матрице 7 на 52 (от этого зависит какой день
@@ -161,4 +161,4 @@ numdays = rows * cols  # количество дней на одной стра�
 if __name__ == "__main__":
     main()
 
-# python github_paint.py --repository=https://github.com/BEPb/test.git
+# python github_paint.py --repository=https://github.com/BEPb/test2016.git
