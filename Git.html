@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://git.netlify.app/    Git_files-->
+<html style="--left:0; --right:0;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon shortcut" href="https://git.netlify.app/favicon.06d4b431.ico">
+    <link rel="apple-touch-icon" href="https://git.netlify.app/logo.png">
+    <link rel="manifest" href="https://git.netlify.app/manifest.webmanifest">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1.0">
+    <meta name="theme-color" content="#9be9a8">
+    <meta name="description" content="Turn your Github contributions graph into a canvas">
+    <link rel="stylesheet" href="./Git_files/shared.a5ed77c5.css">
+    <title>Рисуем Git коммитами</title>
+    <link rel="stylesheet" href="./Git_files/scripts.70495d9e.css">
+</head>
+<body>
+<div id="app">
+    <div class="sliding-drawer sliding-drawer--left">
+        <button title="Open menu" class="sliding-drawer__toggle sliding-drawer__toggle--left icon-button">
+            <svg width="24" height="24">
+                <path d="M12 15.5A3.5 3.5 0 018.5 12 3.5 3.5 0 0112 8.5a3.5 3.5 0 013.5 3.5 3.5 3.5 0 01-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97 0-.33-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0014 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1 0 .33.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.66z">
+
+                </path>
+            </svg>
+        </button>
+        <div class="sliding-drawer__content">
+            <h2 class="sliding-drawer__title">Settings
+            </h2>
+            <form class="sliding-drawer__form">
+                <div class="sliding-drawer__form-field">
+                    <label for="username">Username
+                    </label>
+                    <input id="username" name="username" required="">
+                </div><div class="sliding-drawer__form-field">
+                <label for="repository">Repository
+                </label>
+                <input id="repository" name="repository" required="">
+            </div>
+                <div class="sliding-drawer__form-field">
+                    <label for="branch">Branch
+                    </label>
+                    <input id="branch" required="" name="branch">
+                </div>
+                <button class="submit-button" type="submit">Save
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="sliding-drawer sliding-drawer--right">
+        <button title="Open menu" class="sliding-drawer__toggle sliding-drawer__toggle--right icon-button">
+            <svg width="24" height="24">
+                <path d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-18A10 10 0 002 12a10 10 0 0010 10 10 10 0 0010-10A10 10 0 0012 2m-1 15h2v-6h-2v6z">
+
+                </path>
+            </svg>
+        </button>
+        <div class="sliding-drawer__content">
+            <h2 class="sliding-drawer__title">Instructions
+            </h2>
+        <section class="instructions-content">
+            <ul>
+                <li>Enter your Github username, repository, and branch in the "Settings" panel (Top left). Make sure the repository is empty. The branch should be set to what you use locally. For example, `main`.
+                </li>
+                <li>Draw your image! Left mouse to draw, right mouse to erase. Drawing over a cell again will make it darker. A cell can be one of four shades of green.
+                </li>
+                <li>Generate your shell script! Hit the download icon. This will download a zip file containing a shell script to run.
+                </li>
+                <li>Run the shell script.
+                </li>
+                <li>Once complete, check the repository to make sure the commits have been pushed.
+                </li>
+                <li>After a few minutes the image will appear on your profile!
+                </li>
+            </ul>
+            <hr>
+            <img src="./Git_files/logo64.06d4b431.png" alt="Git">
+            <p>Built by
+                <a href="">andrej_marinchenko
+                </a>. © 2021 MIT.
+            </p>
+        </section>
+    </div>
+    </div>
+    <div class="canvas">
+        <div class="commit-grid" style="--cursor:url(&quot;/brush.9ef99882.png&quot;) 14 34, auto;">
+            <div class="commit-grid__cell" data-level="0" data-index="0" style="--column:1;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="1" style="--column:1;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="2" style="--column:1;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="3" style="--column:1;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="4" style="--column:1;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="5" style="--column:1;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="6" style="--column:1;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="7" style="--column:2;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="8" style="--column:2;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="9" style="--column:2;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="10" style="--column:2;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="11" style="--column:2;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="12" style="--column:2;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="13" style="--column:2;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="14" style="--column:3;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="15" style="--column:3;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="16" style="--column:3;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="17" style="--column:3;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="18" style="--column:3;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="19" style="--column:3;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="20" style="--column:3;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="21" style="--column:4;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="22" style="--column:4;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="23" style="--column:4;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="24" style="--column:4;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="25" style="--column:4;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="26" style="--column:4;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="27" style="--column:4;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="28" style="--column:5;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="29" style="--column:5;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="30" style="--column:5;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="31" style="--column:5;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="32" style="--column:5;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="33" style="--column:5;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="34" style="--column:5;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="35" style="--column:6;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="36" style="--column:6;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="37" style="--column:6;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="38" style="--column:6;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="39" style="--column:6;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="40" style="--column:6;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="41" style="--column:6;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="42" style="--column:7;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="43" style="--column:7;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="44" style="--column:7;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="45" style="--column:7;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="46" style="--column:7;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="47" style="--column:7;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="48" style="--column:7;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="49" style="--column:8;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="50" style="--column:8;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="51" style="--column:8;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="52" style="--column:8;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="53" style="--column:8;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="54" style="--column:8;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="55" style="--column:8;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="56" style="--column:9;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="57" style="--column:9;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="58" style="--column:9;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="59" style="--column:9;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="60" style="--column:9;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="61" style="--column:9;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="62" style="--column:9;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="63" style="--column:10;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="64" style="--column:10;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="65" style="--column:10;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="66" style="--column:10;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="67" style="--column:10;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="68" style="--column:10;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="69" style="--column:10;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="70" style="--column:11;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="71" style="--column:11;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="72" style="--column:11;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="73" style="--column:11;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="74" style="--column:11;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="75" style="--column:11;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="76" style="--column:11;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="77" style="--column:12;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="78" style="--column:12;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="79" style="--column:12;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="80" style="--column:12;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="81" style="--column:12;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="82" style="--column:12;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="83" style="--column:12;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="84" style="--column:13;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="85" style="--column:13;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="86" style="--column:13;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="87" style="--column:13;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="88" style="--column:13;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="89" style="--column:13;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="90" style="--column:13;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="91" style="--column:14;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="92" style="--column:14;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="93" style="--column:14;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="94" style="--column:14;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="95" style="--column:14;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="96" style="--column:14;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="97" style="--column:14;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="98" style="--column:15;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="99" style="--column:15;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="100" style="--column:15;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="101" style="--column:15;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="102" style="--column:15;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="103" style="--column:15;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="104" style="--column:15;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="105" style="--column:16;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="106" style="--column:16;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="107" style="--column:16;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="108" style="--column:16;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="109" style="--column:16;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="110" style="--column:16;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="111" style="--column:16;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="112" style="--column:17;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="113" style="--column:17;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="114" style="--column:17;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="115" style="--column:17;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="116" style="--column:17;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="117" style="--column:17;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="118" style="--column:17;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="119" style="--column:18;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="120" style="--column:18;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="121" style="--column:18;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="122" style="--column:18;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="123" style="--column:18;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="124" style="--column:18;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="125" style="--column:18;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="126" style="--column:19;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="127" style="--column:19;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="128" style="--column:19;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="129" style="--column:19;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="130" style="--column:19;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="131" style="--column:19;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="132" style="--column:19;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="133" style="--column:20;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="134" style="--column:20;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="135" style="--column:20;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="136" style="--column:20;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="137" style="--column:20;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="138" style="--column:20;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="139" style="--column:20;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="140" style="--column:21;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="141" style="--column:21;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="142" style="--column:21;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="143" style="--column:21;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="144" style="--column:21;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="145" style="--column:21;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="146" style="--column:21;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="147" style="--column:22;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="148" style="--column:22;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="149" style="--column:22;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="150" style="--column:22;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="151" style="--column:22;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="152" style="--column:22;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="153" style="--column:22;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="154" style="--column:23;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="155" style="--column:23;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="156" style="--column:23;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="157" style="--column:23;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="158" style="--column:23;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="159" style="--column:23;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="160" style="--column:23;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="161" style="--column:24;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="162" style="--column:24;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="163" style="--column:24;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="164" style="--column:24;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="165" style="--column:24;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="166" style="--column:24;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="167" style="--column:24;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="168" style="--column:25;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="169" style="--column:25;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="170" style="--column:25;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="171" style="--column:25;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="172" style="--column:25;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="173" style="--column:25;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="174" style="--column:25;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="175" style="--column:26;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="176" style="--column:26;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="177" style="--column:26;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="178" style="--column:26;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="179" style="--column:26;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="180" style="--column:26;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="181" style="--column:26;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="182" style="--column:27;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="183" style="--column:27;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="184" style="--column:27;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="185" style="--column:27;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="186" style="--column:27;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="187" style="--column:27;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="188" style="--column:27;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="189" style="--column:28;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="190" style="--column:28;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="191" style="--column:28;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="192" style="--column:28;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="193" style="--column:28;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="194" style="--column:28;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="195" style="--column:28;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="196" style="--column:29;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="197" style="--column:29;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="198" style="--column:29;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="199" style="--column:29;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="200" style="--column:29;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="201" style="--column:29;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="202" style="--column:29;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="203" style="--column:30;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="204" style="--column:30;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="205" style="--column:30;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="206" style="--column:30;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="207" style="--column:30;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="208" style="--column:30;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="209" style="--column:30;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="210" style="--column:31;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="211" style="--column:31;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="212" style="--column:31;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="213" style="--column:31;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="214" style="--column:31;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="215" style="--column:31;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="216" style="--column:31;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="217" style="--column:32;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="218" style="--column:32;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="219" style="--column:32;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="220" style="--column:32;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="221" style="--column:32;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="222" style="--column:32;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="223" style="--column:32;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="224" style="--column:33;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="225" style="--column:33;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="226" style="--column:33;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="227" style="--column:33;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="228" style="--column:33;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="229" style="--column:33;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="230" style="--column:33;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="231" style="--column:34;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="232" style="--column:34;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="233" style="--column:34;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="234" style="--column:34;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="235" style="--column:34;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="236" style="--column:34;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="237" style="--column:34;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="238" style="--column:35;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="239" style="--column:35;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="240" style="--column:35;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="241" style="--column:35;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="242" style="--column:35;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="243" style="--column:35;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="244" style="--column:35;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="245" style="--column:36;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="246" style="--column:36;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="247" style="--column:36;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="248" style="--column:36;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="249" style="--column:36;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="250" style="--column:36;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="251" style="--column:36;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="252" style="--column:37;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="253" style="--column:37;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="254" style="--column:37;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="255" style="--column:37;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="256" style="--column:37;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="257" style="--column:37;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="258" style="--column:37;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="259" style="--column:38;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="260" style="--column:38;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="261" style="--column:38;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="262" style="--column:38;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="263" style="--column:38;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="264" style="--column:38;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="265" style="--column:38;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="266" style="--column:39;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="267" style="--column:39;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="268" style="--column:39;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="269" style="--column:39;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="270" style="--column:39;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="271" style="--column:39;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="272" style="--column:39;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="273" style="--column:40;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="274" style="--column:40;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="275" style="--column:40;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="276" style="--column:40;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="277" style="--column:40;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="278" style="--column:40;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="279" style="--column:40;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="280" style="--column:41;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="281" style="--column:41;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="282" style="--column:41;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="283" style="--column:41;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="284" style="--column:41;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="285" style="--column:41;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="286" style="--column:41;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="287" style="--column:42;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="288" style="--column:42;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="289" style="--column:42;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="290" style="--column:42;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="291" style="--column:42;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="292" style="--column:42;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="293" style="--column:42;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="294" style="--column:43;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="295" style="--column:43;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="296" style="--column:43;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="297" style="--column:43;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="298" style="--column:43;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="299" style="--column:43;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="300" style="--column:43;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="301" style="--column:44;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="302" style="--column:44;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="303" style="--column:44;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="304" style="--column:44;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="305" style="--column:44;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="306" style="--column:44;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="307" style="--column:44;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="308" style="--column:45;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="309" style="--column:45;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="310" style="--column:45;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="311" style="--column:45;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="312" style="--column:45;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="313" style="--column:45;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="314" style="--column:45;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="315" style="--column:46;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="316" style="--column:46;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="317" style="--column:46;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="318" style="--column:46;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="319" style="--column:46;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="320" style="--column:46;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="321" style="--column:46;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="322" style="--column:47;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="323" style="--column:47;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="324" style="--column:47;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="325" style="--column:47;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="326" style="--column:47;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="327" style="--column:47;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="328" style="--column:47;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="329" style="--column:48;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="330" style="--column:48;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="331" style="--column:48;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="332" style="--column:48;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="333" style="--column:48;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="334" style="--column:48;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="335" style="--column:48;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="336" style="--column:49;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="337" style="--column:49;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="338" style="--column:49;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="339" style="--column:49;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="340" style="--column:49;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="341" style="--column:49;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="342" style="--column:49;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="343" style="--column:50;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="344" style="--column:50;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="345" style="--column:50;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="346" style="--column:50;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="347" style="--column:50;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="348" style="--column:50;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="349" style="--column:50;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="350" style="--column:51;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="351" style="--column:51;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="352" style="--column:51;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="353" style="--column:51;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="354" style="--column:51;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="355" style="--column:51;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="356" style="--column:51;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="357" style="--column:52;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="358" style="--column:52;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="359" style="--column:52;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="360" style="--column:52;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="361" style="--column:52;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="362" style="--column:52;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="363" style="--column:52;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="364" style="--column:53;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="365" style="--column:53;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="366" style="--column:53;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="367" style="--column:53;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="368" style="--column:53;"></div>
+            <div class="commit-grid__cell" data-level="0" data-index="369" style="--column:53;"></div>
+        </div>
+        <div class="actions-container">
+            <button disabled="" class="icon-button" title="Download Shell Script">
+                <svg width="24" height="24">
+                    <path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7 7-7z">
+
+                    </path>
+                </svg>
+            </button>
+            <button disabled="" class="icon-button" title="Wipe Grid">
+                <svg width="24" height="24">
+                    <path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path>
+                </svg>
+            </button>
+            <div class="io-container">
+                <button class="icon-button" title="Import">
+                    <svg width="24" height="24">
+                        <path d="M14 12l-4-4v3H2v2h8v3m10 2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v3h2V6h12v12H6v-3H4v3a2 2 0 002 2h12a2 2 0 002-2z">
+                            
+                        </path>
+                    </svg>
+                </button>
+                <button disabled="" class="icon-button" title="Export">
+                    <svg width="24" height="24">
+                        <path d="M23 12l-4-4v3h-9v2h9v3M1 18V6a2 2 0 012-2h12a2 2 0 012 2v3h-2V6H3v12h12v-3h2v3a2 2 0 01-2 2H3a2 2 0 01-2-2z">
+                            
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <div class="configuration-container" style="--scale:0; visibility: hidden;">
+                <input type="text" disabled="" placeholder="Configuration Name">
+                <button disabled="" class="icon-button" title="Save image configuration">
+                    <svg width="24" height="24">
+                        <path d="M15 9H5V5h10m-3 14a3 3 0 01-3-3 3 3 0 013-3 3 3 0 013 3 3 3 0 01-3 3m5-16H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V7l-4-4z">
+                            
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <input id="audio" type="checkbox">
+    <label for="audio" title="Toggle audio" class="icon-button audio-toggle">
+        <svg viewBox="0 0 24 24">
+            <path d="M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.84-5 6.7v2.07c4-.91 7-4.49 7-8.77 0-4.28-3-7.86-7-8.77M16.5 12c0-1.77-1-3.29-2.5-4.03V16c1.5-.71 2.5-2.24 2.5-4M3 9v6h4l5 5V4L7 9H3z">
+                
+            </path>
+        </svg>
+    </label>
+    <div class="toasts"></div>
+</div><script src="./Git_files/scripts.de58030b.js.загрузка"></script>
+<script>if("serviceWorker"in navigator){var e="sw.js";navigator.serviceWorker.register(e).then(function(){console.log("Service Worker Registered")})}</script>
+</body>
+</html>

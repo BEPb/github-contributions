@@ -138,7 +138,7 @@ def main():
 
     # заполнение по картинке
     os.chdir('..')  # вернемся на 2 уровня вверх
-    process_image('test2016.png', directory)  # коммит делается из рисунка
+    process_image('example/test2016.png', directory)  # коммит делается из рисунка
 
 
     if repository is not None:  # если репозиторий существует
