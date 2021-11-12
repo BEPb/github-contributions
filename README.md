@@ -89,4 +89,6 @@ python github_paint.py --repository = https: //github.com/user/repo.git
 
 п.с.с. Если проект понравился не забывайте поставить звезду и если интерестны мои проекты то и записаться в followers
 
-
+<p align="center">
+  <img src="https://github.com/BEPb/BEPb/blob/output/github-contribution-grid-snake.gif" alt="snake"></center>
+</p>
