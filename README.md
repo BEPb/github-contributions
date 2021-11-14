@@ -125,11 +125,13 @@ python github_paint.py --repository = https: //github.com/user/repo.git
 Результат:
 ![](./example/pacman_res.png)
 
-Исходный рисунок `send nudes`:
+7. Исходный рисунок `send nudes`:
 
 ![](./example/send_nudes.png)
 
+7. Исходный рисунок `sex_drugs_alco`:
 
+![](./example/sex_drugs_alco.png)
 
 
 Все примеры работ размещены в папке `example`
