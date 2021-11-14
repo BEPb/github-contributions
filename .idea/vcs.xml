@@ -2,6 +2,11 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/test2011" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/test2012" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/test2013" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/test2014" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/test2015" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/test2016" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/test2018" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/test2019" vcs="Git" />

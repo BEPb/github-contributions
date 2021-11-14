@@ -138,7 +138,7 @@ def main():
 
     # заполнение по картинке
     os.chdir('..')  # вернемся на 2 уровня вверх
-    process_image('example/send_nudes.png', directory)  # коммит делается из рисунка
+    process_image('example/send_nudes_mini.png', directory)  # коммит делается из рисунка
 
 
     if repository is not None:  # если репозиторий существует
@@ -148,7 +148,7 @@ def main():
     print('\nRepository generation ' +
           '\x1b[6;30;42mcompleted successfully\x1b[0m!')
 
-start_date = date(2020, 1, 3)
+start_date = date(2011, 12, 26)
 now = date.today()
 days_ago = now - start_date
 offset = (date.today().weekday() + 1) % 7  # сегодняшней даты, на матрице 7 на 52 (от этого зависит какой день

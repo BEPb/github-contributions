@@ -82,6 +82,56 @@ python github_paint.py --repository = https: //github.com/user/repo.git
 Результат:
 ![](./example/heart_res.png)
 
+3. Исходный рисунок `I love you`:
+
+![](./example/I_love_you.png)
+
+Тот же рисунок но в режиме 52х7:
+![](./example/I_love_you_mini.png)
+
+Результат:
+
+![](./example/I_love_you_res.png)
+
+4. Исходный рисунок `bugs, hex, sux`:
+
+![](./example/bugs_hex_sux.png)
+
+Тот же рисунок но в режиме 52х7:
+![](./example/bugs_hex_sux_mini.png)
+
+Результат:
+
+![](./example/bugs_hex_sux_res.png)
+
+
+5. Исходный рисунок `do it`:
+
+![](./example/do_it.png)
+
+Тот же рисунок но в режиме 52х7:
+![](./example/do_it_mini.png)
+
+Результат:
+![](./example/do_it_res.png)
+
+6. Исходный рисунок `pacman`:
+
+![](./example/pacman.png)
+
+Тот же рисунок но в режиме 52х7:
+![](./example/pacman_mini.png)
+
+Результат:
+![](./example/pacman_res.png)
+
+Исходный рисунок `send nudes`:
+
+![](./example/send_nudes.png)
+
+
+
+
 Все примеры работ размещены в папке `example`
 п.с. в дальнеидущих планах создать GUI приложение или html страницу на которой можно выполнить все операции от 
 рисования до заливки в репозиторий, но пока на это нет времени..... так что всех энтузиастов развить этот проект 
