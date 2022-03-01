@@ -10,134 +10,132 @@
 <img src="https://visitor-badge.laobi.icu/badge?page_id=BEPb.github-contributions" alt="visitors"/>
 </p>
 
+Read this in other languages: [Russian](README.ru.md)
+
 # GitHub Contributions
-(перевод с англ. вклад в GitHub)
+If you want to beautify your GitHub activity history, then the capabilities of the Python script ``github_paint.py``
+will help you replace contributions for the specified period.
 
-## Переделываем активность на GitHub, рисуем в профиле
-
-Если Вы желаете украсить историю своей активности на GitHub, то возможности Python скрипта ``github_paint.py`` 
-помогут Вам заменить contributions за указанный период.
-
-В качестве источника Вы должны заблаговременно подготовить изображение размером 52 на 7 пикселй: оно будет 
-автоматически переобразовано в коммиты от Вашего имени в Ваш отдельный репозиторий.
+## Redoing the activity on GitHub, drawing in the profile
+As a source, you must prepare an image of 52 by 7 pixels in advance: it will
+automatically converted into commits on your behalf to your separate repository.
 
 
-Данная программа сама инициализирует пустой репозиторий файлом README.md и начинает генерировать обновления файла с 
-добавлением вкладов: ГГГГ-ММ-ДД ЧЧ: ММ для каждой фиксации вашего коммита. 
+This program itself initializes an empty repository with the README.md file and starts generating file updates with
+adding contributions: YYYY-MM-DD HH:MM for each commit of your commit.
 
-Использует переключатель --date для создания 
-коммитов в прошлом.
+Uses the --date switch to create
+commits in the past.
 
-### Порядок использования
-1. Создайте новый пустой репозиторий на GitHub. Не добавляйте файл README.md и не инициализируйте репозиторий.
-2. Клонируйте этот репозиторий или скопируйте файл github_paint.py и Ваш рисунок коммитов.
-3. В репозитории откройте html-страницу Git.html и нарисуйте свой рисунок
-4. Сохраните свой рисунок
-5. Преобразуйте его к размеру 52х7
-6. Измените в github_paint.py строки с названием файла вашего рисунка и поледнего дня года в котором вы будете 
-   размещать Ваш рисунок
-7. Запустите программу github_paint.py с ключом (адресом Вашего репозитория) как указана на примере ниже:
+### How to use
+1. Create a new empty GitHub repository. Do not include a README.md file and do not initialize the repository.
+2. Clone this repository or copy the github_paint.py file and your commits drawing.
+3. In the repository, open the html page Git.html and draw your drawing
+4. Save your drawing
+5. Convert it to 52x7
+6. Change the lines in github_paint.py with the file name of your drawing and the last day of the year in which you will
+   post your drawing
+7. Run the github_paint.py program with the key (the address of your repository) as shown in the example below:
+
 ```commandline
 python github_paint.py --repository = https: //github.com/user/repo.git
 ```
- (Метод HTTPS: аутентификация учетной записи)
-Процесс занимает не так уж и много времени (3-5 минут). 
-7. Наслаждайтесь результатом
+(HTTPS Method: Account Authentication)
+The process takes not so much time (3-5 minutes).
+7. Enjoy the result
 
-> Примечание:
-Если вы однажды использовали в репозитории этот скрипт, то повторить с этим же репозиторием - не получится.
-Вам придется создать другой репозиторий, иначе вы получите ошибки в журналах скрипта. 
-Акцент на использовании репозитория, который не был инициализирован.
+> Note:
+If you once used this script in the repository, then you will not be able to repeat it with the same repository.
+You will have to create another repository or else you will get errors in the script logs.
+Emphasis on using a repository that has not been initialized.
 
 
-
-### Примеры работ:
-1. Исходный рисунок `ГЕНОМ`:
+### Work examples:
+1. Initial drawing `ГЕНОМ`:
 
 ![](./example/genom.png)
 
-Тот же рисунок но в разрешении 52х7:
+The same drawing but in 52x7 resolution:
 ![](./example/genom_mini.png)
 
-Результат:
+Result:
 ![](./example/genom_res.png)
 
-2. Исходный рисунок `Я люблю Python`:
+2. Initial drawing  `Я люблю Python`:
 
 ![](./example/i_l_p.png)
 
-Тот же рисунок но в режиме 52х7:
+The same drawing but in 52x7 mode:
 ![](./example/i_l_p_mini.png)
 
-Результат:
+Result:
 ![](./example/i_l_p_res.png)
 
-2. Исходный рисунок `Я люблю Python`:
+2. Initial drawing  `Я люблю Python`:
 
 ![](./example/heart.png)
 
-Тот же рисунок но в режиме 52х7:
+The same drawing but in 52x7 mode:
 ![](./example/heart_mini.png)
 
-Результат:
+Result:
 ![](./example/heart_res.png)
 
-3. Исходный рисунок `I love you`:
+3. Initial drawing  `I love you`:
 
 ![](./example/I_love_you.png)
 
-Тот же рисунок но в режиме 52х7:
+The same drawing but in 52x7 mode:
 ![](./example/I_love_you_mini.png)
 
-Результат:
+Result:
 
 ![](./example/I_love_you_res.png)
 
-4. Исходный рисунок `bugs, hex, sux`:
+4. Initial drawing  `bugs, hex, sux`:
 
 ![](./example/bugs_hex_sux.png)
 
-Тот же рисунок но в режиме 52х7:
+The same drawing but in 52x7 mode:
 ![](./example/bugs_hex_sux_mini.png)
 
-Результат:
+Result:
 
 ![](./example/bugs_hex_sux_res.png)
 
 
-5. Исходный рисунок `do it`:
+5. Initial drawing  `do it`:
 
 ![](./example/do_it.png)
 
-Тот же рисунок но в режиме 52х7:
+The same drawing but in 52x7 mode:
 ![](./example/do_it_mini.png)
 
-Результат:
+Result:
 ![](./example/do_it_res.png)
 
-6. Исходный рисунок `pacman`:
+6. Initial drawing `pacman`:
 
 ![](./example/pacman.png)
 
-Тот же рисунок но в режиме 52х7:
+The same drawing but in 52x7 mode:
 ![](./example/pacman_mini.png)
 
-Результат:
+Result:
 ![](./example/pacman_res.png)
 
-7. Исходный рисунок `send nudes`:
+7. Initial drawing  `send nudes`:
 
 ![](./example/send_nudes.png)
 
-7. Исходный рисунок `sex_drugs_alco`:
+8. Initial drawing  `sex_drugs_alco`:
 
 ![](./example/sex_drugs_alco.png)
 
+All examples of work are placed in the folder `example`
+ps long-term plans to create a GUI application or html page where you can perform all operations from
+drawing before uploading to the repository, but there is no time for this yet ..... so all enthusiasts  develop this 
+project
+I invite you to participate, create your own branch.
 
-Все примеры работ размещены в папке `example`
-п.с. в дальнеидущих планах создать GUI приложение или html страницу на которой можно выполнить все операции от 
-рисования до заливки в репозиторий, но пока на это нет времени..... так что всех энтузиастов развить этот проект 
-приглашаю по учавствовать, создать свою ветку.
-
-п.с.с. Если проект понравился не забывайте поставить звезду, а если интерестны - то и записаться в followers.
-
+p.s.s. If you liked the project, do not forget to put a star, and if you are interested, then sign up as a follower.
