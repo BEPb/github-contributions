@@ -10,7 +10,7 @@
 <img src="https://visitor-badge.laobi.icu/badge?page_id=BEPb.github-contributions" alt="visitors"/>
 </p>
 
-閱讀其他語言： [English](README.md), [हिन्दी](README.hindi.md), [中國人](README.chinese.md)
+閱讀其他語言： [English](README.md), [हिन्दी](README.hindi.md), [Russian](README.ru.md)
 # GitHub 貢獻
 如果你想美化你的 GitHub 活動歷史，那麼 Python 腳本 ``github_paint.py`` 的能力
 將幫助您更換指定時期的供款。
