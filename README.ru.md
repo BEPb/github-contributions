@@ -129,7 +129,7 @@ python github_paint.py --repository = https: //github.com/user/repo.git
 
 ![](./example/send_nudes.png)
 
-7. Исходный рисунок `sex_drugs_alco`:
+8. Исходный рисунок `sex_drugs_alco`:
 
 ![](./example/sex_drugs_alco.png)
 
