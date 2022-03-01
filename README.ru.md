@@ -10,7 +10,7 @@
 <img src="https://visitor-badge.laobi.icu/badge?page_id=BEPb.github-contributions" alt="visitors"/>
 </p>
 
-Читать на других языках: [English](README.ru.md)
+Читать на других языках: [English](README.md), [हिन्दी](README.hindi.md), [中國人](README.chinese.md)
 
 # GitHub Contributions
 Если Вы желаете украсить историю своей активности на GitHub, то возможности Python скрипта ``github_paint.py`` 

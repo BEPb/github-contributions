@@ -10,7 +10,7 @@
 <img src="https://visitor-badge.laobi.icu/badge?page_id=BEPb.github-contributions" alt="visitors"/>
 </p>
 
-Read this in other languages: [Russian](README.ru.md)
+Read this in other languages: [Russian](README.ru.md), [हिन्दी](README.hindi.md), [中國人](README.chinese.md)
 
 # GitHub Contributions
 If you want to beautify your GitHub activity history, then the capabilities of the Python script ``github_paint.py``
